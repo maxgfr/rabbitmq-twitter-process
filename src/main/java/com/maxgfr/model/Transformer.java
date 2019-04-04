@@ -2,12 +2,13 @@ package com.maxgfr.model;
 
 public class Transformer {
 
-    public Transformer() {
+    public Transformer(String text) {
+      System.out.println(text);
 
     }
 
     public String transformContent(String body) {
-      console.log(body)
+      System.out.println(body);
       return body.toUpperCase();
     }
 

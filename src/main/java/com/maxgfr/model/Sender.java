@@ -28,7 +28,7 @@ public class Sender {
       channel.queueDeclare(this.queue_name, false, false, false, null);
       channel.basicPublish("", this.queue_name, null, msg.getBytes("UTF-8"));
     } catch (Exception e) {
-      System.err.println(e);
+      e.printStackTrace();
     }
   }
 }

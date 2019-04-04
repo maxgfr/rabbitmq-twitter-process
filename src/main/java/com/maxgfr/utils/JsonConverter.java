@@ -17,7 +17,7 @@ public class JsonConverter {
           return single_instance;
   }
 
-	public JSONObject parse (String path) {
+	public JSONObject parse(String path) {
 
 		File file = new File(path);
 		JSONObject json = new JSONObject();
@@ -41,7 +41,7 @@ public class JsonConverter {
 		        }
 		    }
 		} catch(Exception e) {
-		     System.err.println(e);
+		     e.printStackTrace();
 		}
 
 		return json;

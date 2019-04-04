@@ -31,7 +31,7 @@ public class Receiver {
       channel.queueDeclare(this.queue_name, false, false, false, null);
       channel.basicConsume(this.queue_name, true, this.deliver_callback, consumerTag -> { });
     } catch (Exception e) {
-      System.err.println(e);
+      e.printStackTrace();
     }
 
   }

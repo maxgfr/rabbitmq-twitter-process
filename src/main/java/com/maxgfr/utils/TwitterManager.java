@@ -38,7 +38,7 @@ public class TwitterManager {
                   listTrends.add(trends.getTrends()[i].getName());
           }
         } catch(Exception e) {
-          System.err.println(e);
+          e.printStackTrace();
         }
         return listTrends;
     }

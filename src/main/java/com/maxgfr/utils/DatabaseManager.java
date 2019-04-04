@@ -44,7 +44,7 @@ public class DatabaseManager {
       statement.close();
       return true;
     } catch (Exception e) {
-        System.err.println(e);
+        e.printStackTrace();
         return false;
     }
 
@@ -63,7 +63,7 @@ public class DatabaseManager {
       prepared_statement.close();
       return true;
     } catch (Exception e) {
-      System.err.println(e);
+      e.printStackTrace();
       return false;
     }
   }
@@ -75,7 +75,7 @@ public class DatabaseManager {
     }
     catch(SQLException e) {
       // connection close failed.
-      System.err.println(e);
+      e.printStackTrace();
     }
 
   }
