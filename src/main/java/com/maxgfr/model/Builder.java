@@ -7,10 +7,10 @@ public class Builder extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("file:/tmp/input?move=./done")
+    from("assets/unclassified/input")
       .process(new LogProcessor())
       .bean(new Transformer(), "transformContent")
-      .to("file:/tmp/output");
+      .to("assets/classified");
   }
 
 }

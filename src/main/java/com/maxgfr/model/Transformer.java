@@ -7,6 +7,7 @@ public class Transformer {
     }
 
     public String transformContent(String body) {
+      console.log(body)
       return body.toUpperCase();
     }
 
