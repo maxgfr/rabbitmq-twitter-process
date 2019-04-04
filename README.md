@@ -13,6 +13,5 @@ mvn archetype:generate
 ### Run the project :
 
 ```
-mvn clean install
-mvn exec:java
+mvn clean install && mvn exec:java
 ```
