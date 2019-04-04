@@ -1,16 +1,15 @@
-package com.maxgfr.camel;
+package com.maxgfr.model;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 
-
-public class MyRouteBuilder extends RouteBuilder {
+public class Builder extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
     from("file:/tmp/input?move=./done")
-      .process(new MyLogProcessor())
-      .bean(new MyTransformer(), "transformContent")
+      .process(new LogProcessor())
+      .bean(new Transformer(), "transformContent")
       .to("file:/tmp/output");
   }
 

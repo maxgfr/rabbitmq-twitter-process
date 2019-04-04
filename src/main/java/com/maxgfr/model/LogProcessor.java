@@ -1,12 +1,12 @@
-package com.maxgfr.camel;
+package com.maxgfr.model;
 
 import org.apache.camel.Processor;
 import org.apache.camel.Exchange;
 
-public class MyLogProcessor implements Processor {
+public class LogProcessor implements Processor {
 
   public void process (Exchange exchange) throws Exception {
-    System.out.println("ça marche");
+    System.out.println("Success !");
     return;
   }
 

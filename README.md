@@ -3,15 +3,9 @@
 Writen by Alexandre Negre and Maxime Golfier
 
 
-## Install and configure maven :
-
-### Generate the project :
-```
-mvn archetype:generate
-```
-
-### Run the project :
+## How to run the project ? :
 
 ```
+mv .env.example .env # use your OWN credentials
 mvn clean install && mvn exec:java
 ```
