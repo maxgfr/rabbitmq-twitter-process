@@ -1,2 +1,3 @@
 # message_bus
-TP2
+
+Writen by Alexandre Negre and Maxime Golfier
