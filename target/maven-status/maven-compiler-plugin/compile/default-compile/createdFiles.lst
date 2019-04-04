@@ -1,1 +1,10 @@
+com/maxgfr/camel/MyTransformer.class
 com/maxgfr/App.class
+com/maxgfr/camel/MyRouteBuilder.class
+com/maxgfr/rabbit/Send.class
+com/maxgfr/utils/JsonConverter.class
+com/maxgfr/utils/TwitterManager.class
+com/maxgfr/camel/CamelOrchestrator.class
+com/maxgfr/camel/MyLogProcessor.class
+com/maxgfr/utils/DatabaseManager.class
+com/maxgfr/rabbit/Recv.class
