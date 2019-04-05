@@ -14,9 +14,9 @@ public class TwitterManager {
     private ConfigurationBuilder cb = null;
 
     private TwitterManager() {
-        ConfigurationBuilder cb = new ConfigurationBuilder();
+        this.cb = new ConfigurationBuilder();
         Dotenv dotenv = Dotenv.load();
-        cb.setDebugEnabled(true)
+        this.cb.setDebugEnabled(true)
           .setOAuthConsumerKey(dotenv.get("CONSUM_API_KEY"))
           .setOAuthConsumerSecret(dotenv.get("CONSUM_PRIV_API_KEY"))
           .setOAuthAccessToken(dotenv.get("ACCESS_TOKEN"))
@@ -29,10 +29,10 @@ public class TwitterManager {
             return single_instance;
     }
 
-    public ArrayList<String> getTrends(int code) {
+    private ArrayList<String> getTrends(int code) {
         ArrayList<String> listTrends = new ArrayList<String>();
         try {
-          Twitter twitter = new TwitterFactory(cb.build()).getInstance();
+          Twitter twitter = new TwitterFactory(this.cb.build()).getInstance();
           Trends trends = twitter.getPlaceTrends(code);
           for (int i = 0; i < 10; i++) {
                   listTrends.add(trends.getTrends()[i].getName());
@@ -43,4 +43,11 @@ public class TwitterManager {
         return listTrends;
     }
 
+    public void saveTrends(String database_name) {
+        DatabaseManager database_manager = DatabaseManager.getInstance();
+        ArrayList<String> trends = this.getTrends(1);
+        database_manager.createTable(database_name);
+        //System.out.println(trends);
+        database_manager.insertTable(database_name, trends.toString());
+    }
 }

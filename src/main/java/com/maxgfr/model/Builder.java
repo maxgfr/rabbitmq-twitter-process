@@ -7,9 +7,8 @@ public class Builder extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("direct:JavaDSLRouteStart").
-      // To route message on the IDE console
-              to("stream:out");
+    from("rabbitmq:localhost:5672/tasks?username=guest&password=guest&autoDelete=false&routingKey=routing_key&queue=mqpending\n")
+            .to("mock:result");
   }
 
 }

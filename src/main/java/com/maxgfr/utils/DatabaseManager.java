@@ -1,12 +1,7 @@
 package com.maxgfr.utils;
 
+import java.sql.*;
 import java.util.Date;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
 
 public class DatabaseManager {
 
@@ -32,7 +27,6 @@ public class DatabaseManager {
   }
 
   public boolean createTable (String name_table) {
-
     String request = "CREATE TABLE " + name_table  + "("
        + "timestamp text NOT NULL,"
        + "ranking text NOT NULL "
@@ -40,7 +34,10 @@ public class DatabaseManager {
 
     try {
       Statement statement = this.connection.createStatement();
-      statement.execute(request);
+      ResultSet tbl = this.connection.getMetaData().getTables(null, null, name_table, null);
+      if(!tbl.next()) {
+        statement.execute(request);
+      }
       statement.close();
       return true;
     } catch (Exception e) {
@@ -50,7 +47,7 @@ public class DatabaseManager {
 
   }
 
-  public boolean insertTable (String name_table, String ranking) throws Exception {
+  public boolean insertTable (String name_table, String ranking) {
     String request = "INSERT INTO " + name_table + "(timestamp, ranking) VALUES(?,?)";
 
     try {

@@ -71,16 +71,22 @@ public class FileManager {
 
 	public void writeJson (String message, String reviewer_name) {
 		try {
+
 			JsonObject obj = new JsonParser().parse(message).getAsJsonObject();
 			Date date = new Date();
 			String ts = Long.toString(date.getTime());
+
 			obj.addProperty("accepted_date", ts);
 			obj.addProperty("reviewer_name", reviewer_name);
+
 			String original_title = obj.get("title").toString().replace("\"","");
 			original_title = original_title.replace(" ", "_");
+
 			FileWriter file = new FileWriter("src/main/ressources/accepted/" + original_title + ".json");
+			
 			file.write(obj.toString());
 			file.flush();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

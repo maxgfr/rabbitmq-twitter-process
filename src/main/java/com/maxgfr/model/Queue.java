@@ -1,10 +1,7 @@
 package com.maxgfr.model;
 
 import com.maxgfr.utils.FileManager;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.DeliverCallback;
+import com.rabbitmq.client.*;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
@@ -15,11 +12,13 @@ public class Queue {
   private String queue_name = null;
   private String exchange_name = null;
   private Channel channel = null;
+  private String routing_key = null;
 
-  private Queue(String queue_name, String exchange_name) {
+  private Queue(String queue_name, String exchange_name, String routing_key) {
       try {
           this.exchange_name = exchange_name;
           this.queue_name = queue_name;
+          this.routing_key = routing_key;
           ConnectionFactory factory = new ConnectionFactory();
           factory.setHost("127.0.0.1");
           Connection connection = factory.newConnection();
@@ -27,16 +26,16 @@ public class Queue {
           channel.queueDelete(queue_name);
           channel.exchangeDeclare(exchange_name, "direct", true);
           channel.queueDeclare(queue_name, true, false, false, null);
-          channel.queueBind(queue_name, exchange_name, "black");
+          channel.queueBind(queue_name, exchange_name, routing_key);
           this.channel = channel;
       } catch (Exception e) {
           e.printStackTrace();
       }
   }
 
-  public static Queue getInstance (String queue_name, String exchange_name) {
+  public static Queue getInstance (String queue_name, String exchange_name, String routing_key) {
       if (single_instance == null)
-          single_instance = new Queue(queue_name, exchange_name);
+          single_instance = new Queue(queue_name, exchange_name, routing_key);
       return single_instance;
   }
 
@@ -46,8 +45,7 @@ public class Queue {
         try {
             JSONObject obj = converter.toJson(list_files.get(i));
             byte[] to_send = obj.toString().getBytes("UTF-8");
-            System.out.println(this.channel);
-            this.channel.basicPublish("", this.queue_name, null, to_send);
+            this.channel.basicPublish(this.exchange_name, this.routing_key, MessageProperties.PERSISTENT_TEXT_PLAIN, to_send);
         } catch (Exception e) {
             e.printStackTrace();
         }
