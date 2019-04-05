@@ -6,7 +6,7 @@ import org.apache.camel.Exchange;
 public class LogProcessor implements Processor {
 
   public void process (Exchange exchange) throws Exception {
-    System.out.println("Success !");
+    System.out.println("it process...");
     return;
   }
 

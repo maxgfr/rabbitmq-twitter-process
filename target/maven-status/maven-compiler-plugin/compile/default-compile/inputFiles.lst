@@ -1,9 +1,8 @@
 /Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/model/Transformer.java
-/Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/model/Sender.java
 /Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/utils/DatabaseManager.java
 /Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/utils/JsonConverter.java
 /Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/utils/TwitterManager.java
 /Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/model/Builder.java
 /Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/App.java
-/Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/model/Receiver.java
+/Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/model/Queue.java
 /Users/maxime/Documents/Personnel/git/message_bus/src/main/java/com/maxgfr/model/LogProcessor.java

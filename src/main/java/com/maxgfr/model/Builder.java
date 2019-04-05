@@ -7,8 +7,9 @@ public class Builder extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("rabbitmq://localhost/A?routingKey=B")
-      .to("rabbitmq://localhost/B");
+    from("direct:JavaDSLRouteStart").
+      // To route message on the IDE console
+              to("stream:out");
   }
 
 }

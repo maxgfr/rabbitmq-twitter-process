@@ -2,8 +2,7 @@ package com.maxgfr.model;
 
 public class Transformer {
 
-    public Transformer(String text) {
-      System.out.println(text);
+    public Transformer() {
 
     }
 

@@ -1,7 +1,6 @@
-com/maxgfr/model/Receiver.class
+com/maxgfr/model/Queue.class
 com/maxgfr/App.class
 com/maxgfr/model/Builder.class
-com/maxgfr/model/Sender.class
 com/maxgfr/utils/JsonConverter.class
 com/maxgfr/model/LogProcessor.class
 com/maxgfr/utils/TwitterManager.class
