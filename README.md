@@ -1,4 +1,4 @@
-# message_bus
+# rabbitmq-twitter-process
 
 Writen by Alexandre Negre and Maxime Golfier
 
